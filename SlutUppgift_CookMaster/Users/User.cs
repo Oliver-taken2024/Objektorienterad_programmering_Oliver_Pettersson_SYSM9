@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SlutUppgift_CookMaster.User
+namespace SlutUppgift_CookMaster.Users
 {
     public abstract class User
     {
@@ -12,27 +12,27 @@ namespace SlutUppgift_CookMaster.User
         public string Password { get; set; }
         public string Country { get; set; }
 
-        public User(string username, string password, string country) 
+        public User(string username, string password, string country)
         {
             UserName = username;
             Password = password;
             Country = country;
         }
 
-        public void ValidateLogin()
+
+        public void ValidateLogin()//ser till at lössenordet är samma som användaren skriver in
+        {//Kanske lägga till en if som ser om användarens input är samma som lössenordet
+
+        }
+
+        public void ChangePassword()//Kan ändra lössenordet
         {
 
         }
 
-        public void ChangePassword()
+        public void UpdateDetails()//Uppdaterar Users list i UserManager tror jag
         {
 
         }
-
-        public void UpdateDetails()
-        {
-
-        }
-
     }
 }
