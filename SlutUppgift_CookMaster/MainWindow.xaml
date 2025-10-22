@@ -11,7 +11,7 @@
         <Label Content="Coockmaster" Margin="20" Background="Red" FontSize="90"/>
         <TextBox Text="{Binding UserNameInput, UpdateSourceTrigger=PropertyChanged}"  FontSize="30"/>
         <TextBlock Text="{Binding PasswordInput, UpdateSourceTrigger=PropertyChanged}" FontSize="30"/>
-        <Button Content="Log in" FontSize="20" />
+        <Button Content="Log in" FontSize="20" Click="Login_Click" />
         <Button Content="Register" FontSize="20" Click="Register_Click"/>
 
     </StackPanel>

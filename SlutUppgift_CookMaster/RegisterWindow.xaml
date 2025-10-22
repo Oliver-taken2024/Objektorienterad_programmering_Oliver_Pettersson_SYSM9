@@ -10,7 +10,9 @@
 
         <TextBox Text="{Binding UserNameInput, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Text="{Binding PasswordInput, UpdateSourceTrigger=PropertyChanged}"/>
-        <ComboBox ItemsSource="{Binding Countries}"/>
+        
+        <ComboBox ItemsSource="{Binding Countries, Mode=OneWay}" SelectedItem="{Binding Country, Mode=TwoWay}"/>
+        <Button Content="Comfirm register" Click="Confirm_Click"/>
 
     </StackPanel>
 </Window>

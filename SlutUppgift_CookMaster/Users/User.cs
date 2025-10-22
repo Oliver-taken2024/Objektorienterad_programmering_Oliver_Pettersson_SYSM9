@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SlutUppgift_CookMaster.Users
 {
-    public abstract class User
+    public  class User
     {
         public string UserName { get; set; }
         public string Password { get; set; }

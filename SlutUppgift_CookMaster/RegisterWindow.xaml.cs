@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SlutUppgift_CookMaster.Manager;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -45,17 +46,27 @@ namespace SlutUppgift_CookMaster
 
         public List<string> Countries { get; set; } = new() { "Sweden", "Norway", "Finland", "Denmark"};
 
-
+        private string _country;
+        public string Country
+        {
+            get { return _country; }
+            set { _country = value; OnPropertyChanged(); }
+        }
 
 
         public void CreateUser()//ska lägga till en ny user i users Listan
         {
-
+            UserManager userManager = new UserManager();
+            userManager.Register(UserNameInput, PasswordInput, Country);
         }
 
         public void ValidatePassword()// ska see till att lösenordet ska vara en viss länged kanske gör jag denna om jag har tid
         {
 
+        }
+        private void Confirm_Click(object sender, RoutedEventArgs e)
+        {
+            CreateUser();
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -64,5 +75,7 @@ namespace SlutUppgift_CookMaster
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
+
+        
     }
 }

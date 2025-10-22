@@ -41,10 +41,17 @@ namespace SlutUppgift_CookMaster
             get { return _passwordInput; }
             set { _passwordInput = value; OnPropertyChanged(); }
         }
+        private void Login_Click(object sender, RoutedEventArgs e) //gör denna sist för jag behöver ha skapat RecipeWindow 
+        {
+
+        }
+
         private void Register_Click(object sender, RoutedEventArgs e)
         {
             OpenRegister();
         }
+
+
         public void Login()//När denna metod är klar ska MainWindow stängas och RecipeListWindow öppnas
         {
 
@@ -55,6 +62,7 @@ namespace SlutUppgift_CookMaster
 
             RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();
+            this.Close();
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -63,6 +71,8 @@ namespace SlutUppgift_CookMaster
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
+
+        
 
        
     }
