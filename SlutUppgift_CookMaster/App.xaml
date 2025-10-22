@@ -1,9 +1,10 @@
 ﻿<Application x:Class="SlutUppgift_CookMaster.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:SlutUppgift_CookMaster"
+             xmlns:local="clr-namespace:SlutUppgift_CookMaster" 
+             xmlns:managers="clr-namespace:SlutUppgift_CookMaster.Manager"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <managers:UserManager x:Key="UserManager"/>
     </Application.Resources>
 </Application>

@@ -22,12 +22,15 @@ namespace SlutUppgift_CookMaster
     /// </summary>
     public partial class RegisterWindow : Window, INotifyPropertyChanged
     {
+        public UserManager UserManager { get; private set; }
         public RegisterWindow()
         {
             InitializeComponent();
             DataContext = this;
+            UserManager = (UserManager)Application.Current.Resources["UserManager"];
             
         }
+        
 
         private string _usernameInput;
 
@@ -56,8 +59,8 @@ namespace SlutUppgift_CookMaster
 
         public void CreateUser()//ska lägga till en ny user i users Listan
         {
-            UserManager userManager = new UserManager();
-            userManager.Register(UserNameInput, PasswordInput, Country);
+            
+            UserManager.Register(UserNameInput, PasswordInput, Country);
         }
 
         public void ValidatePassword()// ska see till att lösenordet ska vara en viss länged kanske gör jag denna om jag har tid
