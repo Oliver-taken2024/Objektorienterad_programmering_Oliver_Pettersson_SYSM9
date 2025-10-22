@@ -28,14 +28,14 @@ namespace SlutUppgift_CookMaster
             DataContext=this;
             
         }
-        private string _userNameInput;
+        private string _userNameInput = "UserName";
        public string UserNameInput// jag binder denna till en textbox
         {
             get { return _userNameInput; }
             set { _userNameInput = value; OnPropertyChanged(); }
         }
 
-        private string _passwordInput;
+        private string _passwordInput = "Password";
         public string PasswordInput//samma här binder den till andra textbox
         {
             get { return _passwordInput; }

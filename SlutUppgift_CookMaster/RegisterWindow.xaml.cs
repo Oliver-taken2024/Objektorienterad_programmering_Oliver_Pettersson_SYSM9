@@ -28,12 +28,12 @@ namespace SlutUppgift_CookMaster
             
         }
 
-        private string _usetnameInput;
+        private string _usernameInput;
 
         public string UserNameInput
         {
-            get { return _usetnameInput; }
-            set { _usetnameInput = value; OnPropertyChanged(); }
+            get { return _usernameInput; }
+            set { _usernameInput = value; OnPropertyChanged(); }
         }
 
         private string _passwordInput;

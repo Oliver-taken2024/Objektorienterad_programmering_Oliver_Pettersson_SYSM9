@@ -12,6 +12,33 @@ namespace SlutUppgift_CookMaster.Manager
     {
         public ObservableCollection<User> users { get; set; } = new();
 
+        public User Loggedin;
+
+        public bool Login(string u, string p) 
+        { 
+            return true;
+        }
+
+        public void Register(string u, string p, string c) 
+        {
+
+        }
+
+        public void FindUser(string Name)
+        {
+
+        }
+
+        public void ChangePassword()
+        {
+
+        }
+
+        public User GetLoggedIn()
+        {
+            return users[0];
+        }
+
 
     }
 }
