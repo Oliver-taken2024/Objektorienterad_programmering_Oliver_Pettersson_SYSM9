@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:SlutUppgift_CookMaster"
         mc:Ignorable="d"
         Title="RegisterWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+
+        <TextBox Text="{Binding UserNameInput, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Text="{Binding PasswordInput, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox ItemsSource="{Binding Countries}"/>
+
+    </StackPanel>
 </Window>

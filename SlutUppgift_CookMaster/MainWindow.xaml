@@ -12,7 +12,7 @@
         <TextBox Text="{Binding UserNameInput, UpdateSourceTrigger=PropertyChanged}"  FontSize="30"/>
         <TextBlock Text="{Binding PasswordInput, UpdateSourceTrigger=PropertyChanged}" FontSize="30"/>
         <Button Content="Log in" FontSize="20" />
-        <Button Content="Register" FontSize="20"/>
+        <Button Content="Register" FontSize="20" Click="Register_Click"/>
 
     </StackPanel>
 </Window>

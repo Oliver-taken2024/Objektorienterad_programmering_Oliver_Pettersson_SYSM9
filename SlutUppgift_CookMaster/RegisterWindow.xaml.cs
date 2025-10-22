@@ -25,6 +25,7 @@ namespace SlutUppgift_CookMaster
         {
             InitializeComponent();
             DataContext = this;
+            
         }
 
         private string _usetnameInput;
@@ -42,6 +43,7 @@ namespace SlutUppgift_CookMaster
             set { _passwordInput = value; OnPropertyChanged(); }
         }
 
+        public List<string> Countries { get; set; } = new() { "Sweden", "Norway", "Finland", "Denmark"};
 
 
 

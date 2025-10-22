@@ -26,6 +26,7 @@ namespace SlutUppgift_CookMaster
         {
             InitializeComponent();
             DataContext=this;
+            
         }
         private string _userNameInput;
        public string UserNameInput// jag binder denna till en textbox
@@ -40,9 +41,10 @@ namespace SlutUppgift_CookMaster
             get { return _passwordInput; }
             set { _passwordInput = value; OnPropertyChanged(); }
         }
-
-
-
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            OpenRegister();
+        }
         public void Login()//När denna metod är klar ska MainWindow stängas och RecipeListWindow öppnas
         {
 
@@ -51,6 +53,8 @@ namespace SlutUppgift_CookMaster
         public void OpenRegister()// är till för att öppna RegisterWindow och stänga MainWindow
         {
 
+            RegisterWindow registerWindow = new RegisterWindow();
+            registerWindow.Show();
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -59,5 +63,7 @@ namespace SlutUppgift_CookMaster
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
+
+       
     }
 }
