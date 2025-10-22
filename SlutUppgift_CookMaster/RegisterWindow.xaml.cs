@@ -32,7 +32,7 @@ namespace SlutUppgift_CookMaster
         }
         
 
-        private string _usernameInput;
+        private string _usernameInput = "Username";
 
         public string UserNameInput
         {
@@ -40,7 +40,7 @@ namespace SlutUppgift_CookMaster
             set { _usernameInput = value; OnPropertyChanged(); }
         }
 
-        private string _passwordInput;
+        private string _passwordInput = "Password";
         public string PasswordInput
         {
             get { return _passwordInput; }
@@ -70,6 +70,9 @@ namespace SlutUppgift_CookMaster
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
             CreateUser();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
