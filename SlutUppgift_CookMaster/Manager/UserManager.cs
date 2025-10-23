@@ -30,6 +30,7 @@ namespace SlutUppgift_CookMaster.Manager
                 if (user.Password == p && user.UserName==u) 
                 { 
                     login = true;
+                    Loggedin = user;
                     return login;
                 }
                 else
@@ -66,7 +67,7 @@ namespace SlutUppgift_CookMaster.Manager
 
         public User GetLoggedIn() // vet inte vad det här är till för?
         {
-            return users[0];
+            return Loggedin;
         }
 
 
