@@ -1,4 +1,5 @@
-﻿using SlutUppgift_CookMaster.Users;
+﻿using SlutUppgift_CookMaster.Manager;
+using SlutUppgift_CookMaster.Users;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -21,12 +22,13 @@ namespace SlutUppgift_CookMaster
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        public UserManager UserManager { get; set; }
         
         public MainWindow()
         {
             InitializeComponent();
             DataContext=this;
-            
+            UserManager = (UserManager)Application.Current.Resources["UserManager"];
         }
         private string _userNameInput = "UserName";
        public string UserNameInput// jag binder denna till en textbox
@@ -43,6 +45,7 @@ namespace SlutUppgift_CookMaster
         }
         private void Login_Click(object sender, RoutedEventArgs e) //gör denna sist för jag behöver ha skapat RecipeWindow 
         {
+            Login();
 
         }
 
@@ -54,7 +57,18 @@ namespace SlutUppgift_CookMaster
 
         public void Login()//När denna metod är klar ska MainWindow stängas och RecipeListWindow öppnas
         {
-
+            
+            bool v =UserManager.Login(UserNameInput, PasswordInput);
+            RecipeListWindow recipeListWindow = new RecipeListWindow();
+            if (v == true)
+            {
+                recipeListWindow.Show();
+                this.Close();
+            }
+            else 
+            {
+                MessageBox.Show("Du har antingen skrivit fel andvändar namn eller fel Lösenord"); 
+            }
         }
 
         public void OpenRegister()// är till för att öppna RegisterWindow och stänga MainWindow

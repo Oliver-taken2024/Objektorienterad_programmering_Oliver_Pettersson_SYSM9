@@ -23,8 +23,22 @@ namespace SlutUppgift_CookMaster.Manager
         public User Loggedin;
 
         public bool Login(string u, string p) // kollar listan om det finns en User med samma namn och lösenord om det finns ska den returna true annars ska den returna false
-        { 
-            return true;
+        {
+            bool login = false;
+            foreach (var user in users) 
+            {
+                if (user.Password == p && user.UserName==u) 
+                { 
+                    login = true;
+                    return login;
+                }
+                else
+                {
+                  login= false;
+                }
+            }
+
+            return login;
         }
 
         public void Register(string u, string p, string c) // lägger till en ny user i Listan
