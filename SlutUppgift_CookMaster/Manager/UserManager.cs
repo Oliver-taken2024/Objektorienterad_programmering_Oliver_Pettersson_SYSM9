@@ -46,15 +46,17 @@ namespace SlutUppgift_CookMaster.Manager
             users.Add(new User(u,p,c));
         }
 
-        public void FindUser(string Name)// Ska hitta en user dock vet jag inte för studen varför detta skulle behövas men jag kommer förmodligen att komma på det senare
+        public bool FindUser(string Name)// Ska hitta en user dock vet jag inte för studen varför detta skulle behövas men jag kommer förmodligen att komma på det senare
         {
             foreach (var user in users) 
             {
                 if (user.UserName == Name)
                 {
-
+                    return true;
                 }
+                
             } 
+            return false;
         }
 
         public void ChangePassword()//Ska ändra lösenord kommer förmodligen använda Delet och sen add

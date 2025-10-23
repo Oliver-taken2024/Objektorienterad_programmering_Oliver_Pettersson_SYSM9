@@ -22,12 +22,12 @@ namespace SlutUppgift_CookMaster
     /// </summary>
     public partial class RegisterWindow : Window, INotifyPropertyChanged
     {
-        public UserManager UserManager { get; private set; }
+        public UserManager Usermanager { get; private set; }
         public RegisterWindow()
         {
             InitializeComponent();
             DataContext = this;
-            UserManager = (UserManager)Application.Current.Resources["UserManager"];
+            Usermanager = (UserManager)Application.Current.Resources["UserManager"];// gör så att min Usermanager är global för alla classer och Windows
             
         }
         
@@ -60,7 +60,7 @@ namespace SlutUppgift_CookMaster
         public void CreateUser()//ska lägga till en ny user i users Listan
         {
             
-            UserManager.Register(UserNameInput, PasswordInput, Country);
+            Usermanager.Register(UserNameInput, PasswordInput, Country);
         }
 
         public void ValidatePassword()// ska see till att lösenordet ska vara en viss länged kanske gör jag denna om jag har tid
@@ -74,11 +74,19 @@ namespace SlutUppgift_CookMaster
                 MessageBox.Show("Du måste fylla i användar namn, lösenord och land");
             }
             else 
-            { 
-               CreateUser();
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
+            {
+               bool give= Usermanager.FindUser(UserNameInput);
+                if (give ==false)
+                {
+                    CreateUser();
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Detta andvändar namn är redan taget");
+                }
             }
             
         }
