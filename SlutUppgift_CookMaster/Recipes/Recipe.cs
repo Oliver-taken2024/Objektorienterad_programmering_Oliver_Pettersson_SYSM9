@@ -26,9 +26,6 @@ namespace SlutUppgift_CookMaster.Recipes
 
         }
 
-        public void CopyRecipe()
-        {
-
-        }
+        
     }
 }

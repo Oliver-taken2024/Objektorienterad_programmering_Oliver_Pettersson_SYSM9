@@ -16,8 +16,8 @@ namespace SlutUppgift_CookMaster.Manager
         public UserManager()
         {
             users = new ObservableCollection<User>();
-            users.Add(new User("User","Password","Sweden"));
-            users.Add(new User("Admin","Password","Sweden"));
+            users.Add(new User("user","password","Sweden"));
+            users.Add(new User("admin","password","Sweden"));
         }
 
         public User Loggedin;
