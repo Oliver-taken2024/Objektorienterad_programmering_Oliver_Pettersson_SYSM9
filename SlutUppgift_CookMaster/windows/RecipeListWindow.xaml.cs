@@ -31,11 +31,16 @@ namespace SlutUppgift_CookMaster
 
         private void AddRecipe_Click(object sender, RoutedEventArgs e)
         {
-
+            AddRecipeWindow addRecipeWindow = new AddRecipeWindow();
+            this.Close();
+            addRecipeWindow.Show();
         }
 
         private void Details_Click(object sender, RoutedEventArgs e)
         {
+            RecipeDetailWindow recipeDetailWindow = new RecipeDetailWindow();
+            this.Close();
+            recipeDetailWindow.Show();
 
         }
 
