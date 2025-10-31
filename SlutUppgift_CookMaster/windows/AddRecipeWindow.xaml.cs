@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,11 +18,14 @@ namespace SlutUppgift_CookMaster.windows
     /// <summary>
     /// Interaction logic for AddRecipeWindow.xaml
     /// </summary>
-    public partial class AddRecipeWindow : Window
+    public partial class AddRecipeWindow : Window, INotifyPropertyChanged
     {
         public AddRecipeWindow()
         {
             InitializeComponent();
+            DataContext= this;
         }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
     }
 }
