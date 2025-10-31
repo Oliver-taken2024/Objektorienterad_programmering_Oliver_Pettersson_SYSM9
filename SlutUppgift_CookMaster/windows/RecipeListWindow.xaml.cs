@@ -27,5 +27,27 @@ namespace SlutUppgift_CookMaster
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
+
+        private void AddRecipe_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Details_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LogOut_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            this.Close();
+            mainWindow.Show();
+        }
     }
 }

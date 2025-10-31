@@ -6,7 +6,16 @@
         xmlns:local="clr-namespace:SlutUppgift_CookMaster"
         mc:Ignorable="d"
         Title="RecipeListWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="self"/>
-    </Grid>
+    <StackPanel>
+        <Label Content="{Binding UserName}"/>
+        <ListBox>
+            <ListBoxItem Content="Fish and chips"/>
+            <ListBoxItem Content="Hotdog"/>
+        </ListBox>
+
+        <Button Content="Add Recipe" Click="AddRecipe_Click"/>
+        <Button Content="Details" Click="Details_Click"/>
+        <Button Content="Remove" Click="Remove_Click"/>
+        <Button Content="log out" Click="LogOut_Click"/>
+    </StackPanel>
 </Window>
