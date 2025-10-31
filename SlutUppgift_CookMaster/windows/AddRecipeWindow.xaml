@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:SlutUppgift_CookMaster.windows"
         mc:Ignorable="d"
         Title="AddRecipeWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <TextBox/>
+        <TextBox/>
+        <TextBox/>
+        <TextBox/>
+        <TextBox/>
+    </StackPanel>
 </Window>

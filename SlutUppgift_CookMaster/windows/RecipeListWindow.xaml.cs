@@ -29,14 +29,14 @@ namespace SlutUppgift_CookMaster
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        private void AddRecipe_Click(object sender, RoutedEventArgs e)
+        private void AddRecipe_Click(object sender, RoutedEventArgs e)// gives me access to AddRecipeWindow
         {
             AddRecipeWindow addRecipeWindow = new AddRecipeWindow();
             this.Close();
             addRecipeWindow.Show();
         }
 
-        private void Details_Click(object sender, RoutedEventArgs e)
+        private void Details_Click(object sender, RoutedEventArgs e)//ger mej tillgång till RecipeDetailsWindow
         {
             RecipeDetailWindow recipeDetailWindow = new RecipeDetailWindow();
             this.Close();
@@ -44,19 +44,26 @@ namespace SlutUppgift_CookMaster
 
         }
 
-        private void Remove_Click(object sender, RoutedEventArgs e)
+        private void Remove_Click(object sender, RoutedEventArgs e) // tar bort ett recept från listan
         {
-
+            if (Recipe.SelectedItem != null)
+            {
+                Recipe.Items.Remove(Recipe.SelectedItem);
+            }
+            else 
+            {
+                MessageBox.Show("Du måste välja ett recept för att ta bort det");
+            }
         }
 
-        private void LogOut_Click(object sender, RoutedEventArgs e)
+        private void LogOut_Click(object sender, RoutedEventArgs e)// gör att jag kan logga ut till MainWindow
         {
             MainWindow mainWindow = new MainWindow();
             this.Close();
             mainWindow.Show();
         }
 
-        private void User_Click(object sender, RoutedEventArgs e)
+        private void UserDetails_Click(object sender, RoutedEventArgs e)// ser User information
         {
             UserDetailsWindow userDetailsWindow = new UserDetailsWindow();
             this.Close();
