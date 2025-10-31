@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SlutUppgift_CookMaster.windows;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -48,6 +49,13 @@ namespace SlutUppgift_CookMaster
             MainWindow mainWindow = new MainWindow();
             this.Close();
             mainWindow.Show();
+        }
+
+        private void User_Click(object sender, RoutedEventArgs e)
+        {
+            UserDetailsWindow userDetailsWindow = new UserDetailsWindow();
+            this.Close();
+            userDetailsWindow.Show();
         }
     }
 }

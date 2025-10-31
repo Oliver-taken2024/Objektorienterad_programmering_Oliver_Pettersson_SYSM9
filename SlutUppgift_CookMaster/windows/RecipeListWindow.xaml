@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="RecipeListWindow" Height="450" Width="800">
     <StackPanel>
-        <Label Content="{Binding UserName}"/>
+        <Label/>
         <ListBox>
             <ListBoxItem Content="Fish and chips"/>
             <ListBoxItem Content="Hotdog"/>
         </ListBox>
-
+        <Button Content="User" Click="User_Click"/>
         <Button Content="Add Recipe" Click="AddRecipe_Click"/>
         <Button Content="Details" Click="Details_Click"/>
         <Button Content="Remove" Click="Remove_Click"/>
