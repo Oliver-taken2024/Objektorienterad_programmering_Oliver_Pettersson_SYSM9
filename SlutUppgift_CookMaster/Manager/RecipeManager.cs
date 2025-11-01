@@ -26,7 +26,7 @@ namespace SlutUppgift_CookMaster.Manager
 
         public void AddRecipe(Recipe r)
         {
-            
+            Recipes.Add(r);
         }
 
         public void RemoveRecipe(Recipe r) 
@@ -45,8 +45,5 @@ namespace SlutUppgift_CookMaster.Manager
         }
 
         
-
-
-
     }
 }

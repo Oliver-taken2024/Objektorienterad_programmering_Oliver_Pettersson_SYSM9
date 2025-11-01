@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="AddRecipeWindow" Height="450" Width="800">
     <StackPanel>
-        <TextBox/>
-        <TextBox/>
-        <TextBox/>
-        <TextBox/>
-        <TextBox/>
+        <TextBox Text="{Binding TitleInput, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Text="{Binding IngrediantsInput, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Text="{Binding InstructionInput, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Text="{Binding CatagoryInput, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Add" Click="Add_Click"/>
     </StackPanel>
 </Window>

@@ -28,7 +28,7 @@ namespace SlutUppgift_CookMaster
         }
 
         
-        public event PropertyChangedEventHandler? PropertyChanged;
+        
 
         private void AddRecipe_Click(object sender, RoutedEventArgs e)// gives me access to AddRecipeWindow
         {
@@ -39,9 +39,16 @@ namespace SlutUppgift_CookMaster
 
         private void Details_Click(object sender, RoutedEventArgs e)//ger mej tillgång till RecipeDetailsWindow
         {
+            if (Recipe.SelectedItem != null)
+            {
             RecipeDetailWindow recipeDetailWindow = new RecipeDetailWindow();
             this.Close();
             recipeDetailWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Du måste välja ett recept för att se detaljerna");
+            }
 
         }
 
@@ -59,25 +66,22 @@ namespace SlutUppgift_CookMaster
 
         private void LogOut_Click(object sender, RoutedEventArgs e)// gör att jag kan logga ut till MainWindow
         {
-            if (Recipe.SelectedItem != null)
-            {
+            
                 MainWindow mainWindow = new MainWindow();
                 this.Close();
                 mainWindow.Show();
-            }
-            else
-            {
-                MessageBox.Show("Du måste välja ett recept för att se detaljerna");
-            }
+            
         }
 
         private void UserDetails_Click(object sender, RoutedEventArgs e)// ser User information
         {
-            UserDetailsWindow userDetailsWindow = new UserDetailsWindow();
-            this.Close();
-            userDetailsWindow.Show();
+            
+             UserDetailsWindow userDetailsWindow = new UserDetailsWindow();
+             this.Close();
+             userDetailsWindow.Show();
+            
         }
 
-        
+        public event PropertyChangedEventHandler? PropertyChanged;
     }
 }
