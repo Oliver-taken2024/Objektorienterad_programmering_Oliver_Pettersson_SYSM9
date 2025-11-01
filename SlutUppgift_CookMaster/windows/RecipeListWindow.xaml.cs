@@ -1,4 +1,5 @@
 ﻿using SlutUppgift_CookMaster.Manager;
+using SlutUppgift_CookMaster.Users;
 using SlutUppgift_CookMaster.windows;
 using System;
 using System.Collections.Generic;
@@ -22,18 +23,18 @@ namespace SlutUppgift_CookMaster
     /// </summary>
     public partial class RecipeListWindow : Window, INotifyPropertyChanged
     {
-       public RecipeManager recipeManager;
+        public UserManager UserManager;
+        public RecipeManager recipeManager;
+        public MainWindow mainWindow;
 
         public RecipeListWindow()
         {
             InitializeComponent();
             DataContext = this;
             recipeManager = (RecipeManager)Application.Current.Resources["RecipeManager"];
+            UserManager = (UserManager)Application.Current.Resources["UserManager"]; 
         }
-
-        
-        
-
+            
         private void AddRecipe_Click(object sender, RoutedEventArgs e)// gives me access to AddRecipeWindow
         {
             AddRecipeWindow addRecipeWindow = new AddRecipeWindow();

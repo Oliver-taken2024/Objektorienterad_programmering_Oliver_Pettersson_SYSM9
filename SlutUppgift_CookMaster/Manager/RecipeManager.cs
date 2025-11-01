@@ -50,6 +50,7 @@ namespace SlutUppgift_CookMaster.Manager
 
         public void GetByUser(User u)
         {
+            
 
         }
 

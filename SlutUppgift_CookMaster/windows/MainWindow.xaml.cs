@@ -63,6 +63,13 @@ namespace SlutUppgift_CookMaster
             RecipeListWindow recipeListWindow = new RecipeListWindow();
             if (v == true)
             {
+                foreach(var user in UserManager.Users)
+                {
+                    if (UserNameInput == user.UserName)
+                    {
+                        UserManager.GetLoggedIn(user); 
+                    }
+                }
                 recipeListWindow.Show();
                 recipeListWindow.ShowRecipe();
                 this.Close();

@@ -21,6 +21,7 @@ namespace SlutUppgift_CookMaster.Manager
         }
 
         public User Loggedin;
+      
 
         public bool Login(string u, string p) // kollar listan om det finns en User med samma namn och lösenord om det finns ska den returna true annars ska den returna false
         {
@@ -65,8 +66,9 @@ namespace SlutUppgift_CookMaster.Manager
 
         }
 
-        public User GetLoggedIn() // vet inte vad det här är till för?
+        public User GetLoggedIn(User m) // vet inte vad det här är till för?
         {
+            Loggedin = m;
             return Loggedin;
         }
 
