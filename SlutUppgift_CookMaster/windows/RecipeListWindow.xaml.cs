@@ -61,8 +61,7 @@ namespace SlutUppgift_CookMaster
             
             if (Rec.SelectedItem != null)
             {
-                Rec.Items.Remove(Rec.SelectedItem);
-
+                removeRecipe();
             }
             else 
             {
@@ -87,7 +86,7 @@ namespace SlutUppgift_CookMaster
              userDetailsWindow.Show();
             
         }
-        public void ShowRecipe()
+        public void ShowRecipe()// visar hur många recept det finns i listan
         {
             foreach (var item in recipeManager.Recipes) 
             {
@@ -95,8 +94,17 @@ namespace SlutUppgift_CookMaster
             }
         }
 
-        public void removeRecipe()
+        public void removeRecipe()// tar bort recept och söker igenom listan efter en matchande titel och sedan anropa RemoveRecipe
         {
+            foreach (var item in recipeManager.Recipes)
+            {
+                if (Rec.SelectedItem == item.Title) 
+                { 
+                    recipeManager.RemoveRecipe(item);
+                    Rec.Items.Remove(item.Title);
+                    break;
+                }
+            }
 
         }
 

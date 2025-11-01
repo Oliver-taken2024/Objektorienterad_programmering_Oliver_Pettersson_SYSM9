@@ -14,6 +14,8 @@ namespace SlutUppgift_CookMaster.Manager
         public ObservableCollection<Recipe> Recipes {  get; set; }
         public UserManager UserManager { get; set; }
 
+        
+
         public RecipeManager() 
         {
             Recipes = new ObservableCollection<Recipe>();
@@ -24,18 +26,19 @@ namespace SlutUppgift_CookMaster.Manager
                 , "Fastfood", new DateTime(2025,10 ,31)));
         }
 
-        public void AddRecipe(Recipe r)
+        public void AddRecipe(Recipe r) // lägger till ett recept till listan
         {
             Recipes.Add(r);
         }
 
-        public void RemoveRecipe(Recipe r) 
+        public void RemoveRecipe(Recipe r)// tar bort ett recept från listan genom att söka genom listan efter en titel som matchar
         {
             foreach (var item in Recipes) 
             {
                 if (item.Title == r.Title) 
                 {
                     Recipes.Remove(item);
+                    break;
                 }
             }
         }
