@@ -43,7 +43,7 @@ namespace SlutUppgift_CookMaster.Manager
             }
         }
 
-        public void GetAllRecipe()
+        public void GetAllRecipe()// kan göra så att bara userna kan se sina egna recept listor genom att göra så att jag gör en metod som letar igenom listan efter recept som har usernamnet inskrivet i det 
         {
 
         }
