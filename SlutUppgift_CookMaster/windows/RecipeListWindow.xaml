@@ -8,9 +8,8 @@
         Title="RecipeListWindow" Height="450" Width="800">
     <StackPanel>
         <Label/>
-        <ListBox x:Name="Recipe">
-            <ListBoxItem Content="Fish and chips"/>
-            <ListBoxItem Content="Hotdog"/>
+        <ListBox x:Name="Rec">
+            
         </ListBox>
         <Button Content="User" Click="UserDetails_Click"/>
         <Button Content="Add Recipe" Click="AddRecipe_Click"/>

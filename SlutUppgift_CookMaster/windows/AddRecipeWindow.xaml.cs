@@ -65,7 +65,7 @@ namespace SlutUppgift_CookMaster.windows
 
 
 
-        private void Add_Click(object sender, RoutedEventArgs e)
+        private void Add_Click(object sender, RoutedEventArgs e)// add recipes
         {
             if (TitleInput != null && IngrediantsInput != null && InstructionInput != null && CatagoryInput != null)
             {
@@ -73,6 +73,7 @@ namespace SlutUppgift_CookMaster.windows
                 recipe = new Recipe(TitleInput, IngrediantsInput, InstructionInput, CatagoryInput, Currenttime);
                 Recipes.AddRecipe(recipe);
                 this.Close();
+                recipeListWindow.ShowRecipe();
                 recipeListWindow.Show();
             }
             else

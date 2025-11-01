@@ -22,6 +22,7 @@ namespace SlutUppgift_CookMaster
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        
         public UserManager UserManager { get; set; }
         
         public MainWindow()
@@ -46,7 +47,7 @@ namespace SlutUppgift_CookMaster
         private void Login_Click(object sender, RoutedEventArgs e) //gör denna sist för jag behöver ha skapat RecipeWindow 
         {
             Login();
-
+            
         }
 
         private void Register_Click(object sender, RoutedEventArgs e)
@@ -63,6 +64,7 @@ namespace SlutUppgift_CookMaster
             if (v == true)
             {
                 recipeListWindow.Show();
+                recipeListWindow.ShowRecipe();
                 this.Close();
             }
             else 

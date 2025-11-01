@@ -1,4 +1,5 @@
-﻿using SlutUppgift_CookMaster.windows;
+﻿using SlutUppgift_CookMaster.Manager;
+using SlutUppgift_CookMaster.windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,10 +22,13 @@ namespace SlutUppgift_CookMaster
     /// </summary>
     public partial class RecipeListWindow : Window, INotifyPropertyChanged
     {
+       public RecipeManager recipeManager;
+
         public RecipeListWindow()
         {
             InitializeComponent();
             DataContext = this;
+            recipeManager = (RecipeManager)Application.Current.Resources["RecipeManager"];
         }
 
         
@@ -39,7 +43,7 @@ namespace SlutUppgift_CookMaster
 
         private void Details_Click(object sender, RoutedEventArgs e)//ger mej tillgång till RecipeDetailsWindow
         {
-            if (Recipe.SelectedItem != null)
+            if (Rec.SelectedItem != null)
             {
             RecipeDetailWindow recipeDetailWindow = new RecipeDetailWindow();
             this.Close();
@@ -54,9 +58,11 @@ namespace SlutUppgift_CookMaster
 
         private void Remove_Click(object sender, RoutedEventArgs e) // tar bort ett recept från listan
         {
-            if (Recipe.SelectedItem != null)
+            
+            if (Rec.SelectedItem != null)
             {
-                Recipe.Items.Remove(Recipe.SelectedItem);
+                Rec.Items.Remove(Rec.SelectedItem);
+
             }
             else 
             {
@@ -80,6 +86,18 @@ namespace SlutUppgift_CookMaster
              this.Close();
              userDetailsWindow.Show();
             
+        }
+        public void ShowRecipe()
+        {
+            foreach (var item in recipeManager.Recipes) 
+            {
+                Rec.Items.Add(item.Title);
+            }
+        }
+
+        public void removeRecipe()
+        {
+
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
