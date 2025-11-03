@@ -34,7 +34,7 @@ namespace SlutUppgift_CookMaster.Recipes
 
         public void EditRecipe () 
         {
-
+            //Kanske kan jag ta bort receptet redan från början eftersom man kommer inte ut utan att ha trykt på save
         }
 
         

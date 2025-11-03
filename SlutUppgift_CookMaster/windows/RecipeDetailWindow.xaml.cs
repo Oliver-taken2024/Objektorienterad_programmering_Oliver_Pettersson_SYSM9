@@ -22,6 +22,8 @@ namespace SlutUppgift_CookMaster.windows
     /// </summary>
     public partial class RecipeDetailWindow : Window, INotifyPropertyChanged
     {
+        DateTime dateTime= DateTime.Now;
+        public Recipe r;
         public RecipeManager recipeManager;
         public RecipeDetailWindow()
         {
@@ -29,6 +31,8 @@ namespace SlutUppgift_CookMaster.windows
             DataContext=this;
             recipeManager = (RecipeManager)Application.Current.Resources["RecipeManager"];
         }
+
+        //Skapa recipeDetails så jag kan använda den i recipemanager för att leta upp receptet  i listan för att sen ta bort det och lägga till ändringen
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -38,15 +42,26 @@ namespace SlutUppgift_CookMaster.windows
             Box2.IsEnabled = true;
             Box3.IsEnabled = true;
             Box4.IsEnabled = true;
-            Box5.IsEnabled = true;
+            
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             RecipeListWindow recipeListWindow = new RecipeListWindow();
-            EditRecipe();
-            //this.Close();
-            //recipeListWindow.Show();
+            if (!string.IsNullOrWhiteSpace(Box1.Text) &&
+    !string.IsNullOrWhiteSpace(Box2.Text) &&
+    !string.IsNullOrWhiteSpace(Box3.Text) &&
+    !string.IsNullOrWhiteSpace(Box4.Text))
+            {
+                EditRecipe();
+                this.Close();
+                recipeListWindow.ShowRecipe();
+                recipeListWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Du måste fylla in alla boxarna");
+            }
         }
 
         public void ShowRecipe(Recipe recipe)//visa hela recepted som man valde
@@ -61,7 +76,10 @@ namespace SlutUppgift_CookMaster.windows
 
         public void EditRecipe()// will Change the recipe
         {
-
+           
+            r = new Recipe(Box1.Text, Box2.Text, Box3.Text, Box4.Text, dateTime);
+            recipeManager.UppdateRecipe(r);
+            
         }
     }
 }

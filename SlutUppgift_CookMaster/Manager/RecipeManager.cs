@@ -54,6 +54,12 @@ namespace SlutUppgift_CookMaster.Manager
 
         }
 
+        public void UppdateRecipe(Recipe r)// ändrar ett redan existerande recept
+        {
+
+
+        }
+
         
     }
 }
