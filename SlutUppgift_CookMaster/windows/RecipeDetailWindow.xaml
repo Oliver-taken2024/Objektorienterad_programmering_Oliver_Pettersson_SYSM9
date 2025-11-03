@@ -6,7 +6,13 @@
         xmlns:local="clr-namespace:SlutUppgift_CookMaster.windows"
         mc:Ignorable="d"
         Title="RecipeDetailWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <TextBox x:Name="Box1" Text="" IsEnabled="False"/>
+        <TextBox x:Name="Box2" Text="" IsEnabled="False"/>
+        <TextBox x:Name="Box3" Text="" IsEnabled="False"/>
+        <TextBox x:Name="Box4" Text="" IsEnabled="False"/>
+        <TextBox x:Name="Box5" Text="" IsEnabled="False"/>
+        <Button Content="Edit" Click="Edit_Click"/>
+        <Button Content="Save" Click="Save_Click"/>
+    </StackPanel>
 </Window>

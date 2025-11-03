@@ -46,8 +46,16 @@ namespace SlutUppgift_CookMaster
         {
             if (Rec.SelectedItem != null)
             {
-            RecipeDetailWindow recipeDetailWindow = new RecipeDetailWindow();
-            this.Close();
+                RecipeDetailWindow recipeDetailWindow = new RecipeDetailWindow();
+                this.Close();
+                foreach (var item in recipeManager.Recipes)
+                { 
+                    if (Rec.SelectedItem == item.Title)
+                    {
+                      recipeDetailWindow.ShowRecipe(item);
+                    }
+                
+                }
             recipeDetailWindow.Show();
             }
             else
