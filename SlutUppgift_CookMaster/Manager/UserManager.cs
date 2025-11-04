@@ -61,7 +61,7 @@ namespace SlutUppgift_CookMaster.Manager
             return false;
         }
 
-        public void ChangePassword(string u, string p)//Ska ändra lösenord kommer förmodligen använda Delet och sen add
+        public void ChangeProfile(string u, string p, string c)//Ska ändra lösenord kommer förmodligen använda Delet och sen add
         {
 
         }

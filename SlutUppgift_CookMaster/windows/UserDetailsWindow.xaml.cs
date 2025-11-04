@@ -75,12 +75,45 @@ namespace SlutUppgift_CookMaster.windows
             set { _country = value; OnPropertyChanged(); }
         }
 
+        public bool CheckName(string name)
+        { 
+            bool result = false;
+            foreach (var s in UserManager.Users) 
+            {
+                if (s.UserName == name)
+                {
+                    result = true; break;
+                }
+                else
+                {
+                    result = false;
+                }
+            }
+            return result;
+        }
         
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             RecipeListWindow recipeListWindow = new RecipeListWindow();
-            
-            recipeListWindow.Show();
+            bool result= CheckName(NewUserName);
+            if (result == true)
+            {
+                MessageBox.Show("Detta Användarnamn är redan taget välj ett annat");
+
+            }
+            else
+            {
+                if (NewPassword == ConfirmPassword)
+                {
+                  UserManager.ChangeProfile(NewUserName, NewPassword, Country);
+                  recipeListWindow.Show();
+                  this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Du har inte skrivit rätt lössenord i båda rutorna");
+                }
+            }
 
         }
 
