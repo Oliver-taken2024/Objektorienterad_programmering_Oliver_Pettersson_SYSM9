@@ -10,9 +10,9 @@
         <TextBox x:Name="Username"/>
         <TextBox x:Name="NewPassword"/>
         <TextBox x:Name="ConfirmPassword"/>
-        <ComboBox>
-            
-        </ComboBox>
+        <ComboBox ItemsSource="{Binding Countries, Mode=OneWay}" SelectedItem="{Binding Country, Mode=TwoWay}"/>
+
+
         <Button Content="Save" Click="Save_Click"/>
         <Button Content="Cancel" Click="Cancel_Click"/>
     </StackPanel>

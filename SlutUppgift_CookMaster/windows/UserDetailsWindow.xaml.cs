@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -48,14 +49,20 @@ namespace SlutUppgift_CookMaster.windows
             Username.Text= Loggedin.UserName;
         }
 
-      
+        public List<string> Countries { get; set; } = new() { "Sweden", "Norway", "Finland", "Denmark" };
 
-        public event PropertyChangedEventHandler? PropertyChanged;
+        private string _country;
+        public string Country
+        {
+            get { return _country; }
+            set { _country = value; OnPropertyChanged(); }
+        }
 
+        
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             RecipeListWindow recipeListWindow = new RecipeListWindow();
-            User user = new User();
+            
             recipeListWindow.Show();
 
         }
@@ -68,5 +75,13 @@ namespace SlutUppgift_CookMaster.windows
             recipeListWindow.ShowRecipe();
             this.Close();
         }
+
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        
+        public event PropertyChangedEventHandler? PropertyChanged;
+
     }
 }

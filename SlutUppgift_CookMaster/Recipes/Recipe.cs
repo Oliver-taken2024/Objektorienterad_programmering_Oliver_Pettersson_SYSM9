@@ -21,13 +21,14 @@ namespace SlutUppgift_CookMaster.Recipes
 
         public User CreatedBY { get; set; }
 
-        public Recipe(string title, string ingredients, string instructions, string catagory, DateTime date) 
+        public Recipe(string title, string ingredients, string instructions, string catagory, DateTime date, User createdBy) 
         {
             Title = title;
             Ingredients = ingredients;
             Instructions = instructions;
             Catagory = catagory;
             Date = date;
+            CreatedBY = createdBy;
             
             
         }

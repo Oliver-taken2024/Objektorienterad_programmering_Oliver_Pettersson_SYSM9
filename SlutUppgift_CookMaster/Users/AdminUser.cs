@@ -12,14 +12,6 @@ namespace SlutUppgift_CookMaster.Users
         {
         }
 
-        public void RemoveAnyRecipe()//Tar bort recipt från RecipeManager
-        {
-
-        }
-
-        public void ViewAllRecipes()// kan se alla recept från alla användare
-        {//foreach men söker inte efter user namn
-
-        }
+        
     }
 }

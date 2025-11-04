@@ -116,7 +116,16 @@ namespace SlutUppgift_CookMaster
         {
             foreach (var item in recipeManager.Recipes) 
             {
-                Rec.Items.Add(item.Title);
+
+                if (UserManager.Loggedin == UserManager.Users[1])
+                {
+                    Rec.Items.Add(item.Title);
+                }
+                if(item.CreatedBY == UserManager.Loggedin)
+                {
+                  Rec.Items.Add(item.Title);
+                }
+                
             }
         }
 

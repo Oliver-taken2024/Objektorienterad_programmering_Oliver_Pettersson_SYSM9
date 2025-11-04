@@ -28,12 +28,14 @@ namespace SlutUppgift_CookMaster.windows
         DateTime Currenttime = DateTime.Now;
         public RecipeManager Recipes { get; private set; }
         public Recipe recipe;
+        public UserManager UserManager;
         
         public AddRecipeWindow()
         {
             InitializeComponent();
             DataContext= this;
             Recipes = (RecipeManager)Application.Current.Resources["RecipeManager"];
+            UserManager = (UserManager)Application.Current.Resources["UserManager"];
         }
         private string _titleInput { get; set; }
         public string TitleInput
@@ -70,7 +72,7 @@ namespace SlutUppgift_CookMaster.windows
             if (TitleInput != null && IngrediantsInput != null && InstructionInput != null && CatagoryInput != null)
             {
                 RecipeListWindow recipeListWindow = new RecipeListWindow();
-                recipe = new Recipe(TitleInput, IngrediantsInput, InstructionInput, CatagoryInput, Currenttime);
+                recipe = new Recipe(TitleInput, IngrediantsInput, InstructionInput, CatagoryInput, Currenttime, UserManager.Loggedin);
                 Recipes.AddRecipe(recipe);
                 this.Close();
                 recipeListWindow.ShowRecipe();

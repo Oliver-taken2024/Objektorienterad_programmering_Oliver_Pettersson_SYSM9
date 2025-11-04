@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
 
-        <Label Content="Coockmaster" Margin="20" Background="Red" FontSize="90"/>
+        <Label Content="Cookmaster" Margin="20" Background="Red" FontSize="90"/>
         <TextBox Text="{Binding UserNameInput, UpdateSourceTrigger=PropertyChanged}"  FontSize="30"/>
         <TextBox Text="{Binding PasswordInput, UpdateSourceTrigger=PropertyChanged}" FontSize="30"/>
         <Button Content="Log in" FontSize="20" Click="Login_Click" />

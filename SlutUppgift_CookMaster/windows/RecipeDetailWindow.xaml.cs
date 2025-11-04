@@ -25,11 +25,13 @@ namespace SlutUppgift_CookMaster.windows
         DateTime dateTime= DateTime.Now;
         public Recipe r;
         public RecipeManager recipeManager;
+        public UserManager userManager;
         public RecipeDetailWindow()
         {
             InitializeComponent();
             DataContext=this;
             recipeManager = (RecipeManager)Application.Current.Resources["RecipeManager"];
+            userManager = (UserManager)Application.Current.Resources["UserManager"];
         }
 
         //Skapa recipeDetails så jag kan använda den i recipemanager för att leta upp receptet  i listan för att sen ta bort det och lägga till ändringen
@@ -76,9 +78,11 @@ namespace SlutUppgift_CookMaster.windows
 
         public void EditRecipe()// will Change the recipe
         {
-           
-            r = new Recipe(Box1.Text, Box2.Text, Box3.Text, Box4.Text, dateTime);
-            recipeManager.UppdateRecipe(r);
+            if (userManager.Loggedin != userManager.Users[1]) 
+            {
+                r = new Recipe(Box1.Text, Box2.Text, Box3.Text, Box4.Text, dateTime, userManager.Loggedin);
+                recipeManager.UppdateRecipe(r);
+            }
             
         }
     }
