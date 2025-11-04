@@ -40,7 +40,7 @@ namespace SlutUppgift_CookMaster
                 
             } 
         }
-        public Recipe Recipe;
+        public RecipeManager Recipe;
 
         public RecipeListWindow()
         {
@@ -67,7 +67,7 @@ namespace SlutUppgift_CookMaster
                 { 
                     if (Rec.SelectedItem == item.Title)
                     {
-                       Recipe=item;
+                        recipe(item);
                       recipeDetailWindow.ShowRecipe(item);
                         break;
                     }
@@ -80,6 +80,11 @@ namespace SlutUppgift_CookMaster
                 MessageBox.Show("Du måste välja ett recept för att se detaljerna");
             }
 
+        }
+
+        private void recipe(Recipe item)
+        {
+            throw new NotImplementedException();
         }
 
         private void Remove_Click(object sender, RoutedEventArgs e) // tar bort ett recept från listan
@@ -151,6 +156,12 @@ namespace SlutUppgift_CookMaster
             InfoWindow infoWindow = new InfoWindow();
             infoWindow.Show();
             this.Close();
+        }
+
+        public RecipeManager recipe(RecipeManager recipe)
+        {
+            Recipe=recipe;
+            return Recipe;
         }
     }
 }

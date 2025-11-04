@@ -35,7 +35,7 @@ namespace SlutUppgift_CookMaster.windows
             userManager = (UserManager)Application.Current.Resources["UserManager"];
         }
 
-        public Recipe Recipe 
+        public RecipeManager Recipe 
         { 
             get { return recipeListWindow.Recipe; } 
             private set
@@ -98,11 +98,11 @@ public event PropertyChangedEventHandler? PropertyChanged;
             {
                 foreach (var item in recipeManager.Recipes) 
                 {
-                    //if (item.CreatedBY == Recipe.CreatedBY) 
-                    //{
+                    if (item.CreatedBY == Recipe.UserManager.Loggedin) 
+                    {
                         r = new Recipe(Box1.Text, Box2.Text, Box3.Text, Box4.Text, dateTime, item.CreatedBY);
                         recipeManager.UppdateRecipe(r); 
-                    //}
+                    }
                     
                 }
 
