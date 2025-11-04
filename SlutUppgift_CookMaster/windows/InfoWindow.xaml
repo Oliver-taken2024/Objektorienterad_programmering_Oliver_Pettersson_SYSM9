@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="InfoWindow" Height="450" Width="800">
     <StackPanel>
-        <Label Content="" />
+        <Label Content="Information about this website" FontSize="20" />
+        <Label Content="In this website you can add and remove recipes you can also veiw details about said recipe" FontSize="19"/>
+        <Label Content="You can change your username and change your password" FontSize="20"/>
+        <Label/>
+        <Label Content="Information about CookMaster" FontSize="20"/>
+        <Label/>
     </StackPanel>
 </Window>

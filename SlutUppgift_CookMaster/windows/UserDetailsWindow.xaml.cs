@@ -30,7 +30,7 @@ namespace SlutUppgift_CookMaster.windows
             DataContext = this;
             UserManager = (UserManager)Application.Current.Resources["UserManager"];
         }
-        
+
         public User Loggedin
         {
             get
@@ -43,11 +43,28 @@ namespace SlutUppgift_CookMaster.windows
 
             }
         }
-
-        public void ShowUser ()
+        private string _newUserName = $"NewUsername";
+        public string NewUserName
         {
-            Username.Text= Loggedin.UserName;
+            get { return _newUserName; }
+            set { _newUserName = value; OnPropertyChanged(); }
         }
+
+        private string _newPassword= "NewPassword";
+        public string NewPassword
+        {
+            get { return _newPassword; }
+            set { _newPassword = value; OnPropertyChanged(); }
+        }
+
+        private string _confirmPassword= "ConfirmPassword";
+        public string ConfirmPassword
+        {
+            get { return _confirmPassword; }
+            set { _confirmPassword = value; OnPropertyChanged(); }
+        }
+        
+     
 
         public List<string> Countries { get; set; } = new() { "Sweden", "Norway", "Finland", "Denmark" };
 
@@ -82,6 +99,7 @@ namespace SlutUppgift_CookMaster.windows
         }
         
         public event PropertyChangedEventHandler? PropertyChanged;
+        
 
     }
 }

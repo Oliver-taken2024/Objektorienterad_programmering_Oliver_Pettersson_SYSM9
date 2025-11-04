@@ -113,7 +113,6 @@ namespace SlutUppgift_CookMaster
         {
             
              UserDetailsWindow userDetailsWindow = new UserDetailsWindow();
-            userDetailsWindow.ShowUser();
              this.Close();
              userDetailsWindow.Show();
             

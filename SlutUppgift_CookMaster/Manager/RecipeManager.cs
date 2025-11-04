@@ -58,7 +58,7 @@ namespace SlutUppgift_CookMaster.Manager
 
         public void UppdateRecipe(Recipe r)// lägger till det ändrade receptet
         {
-            Recipes.Add(r);
+            Recipes[1] = r;
         }
 
         
