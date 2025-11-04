@@ -25,7 +25,7 @@ namespace SlutUppgift_CookMaster.Users
 
         }
 
-        public void ChangePassword()//Kan ändra lössenordet
+        public void ChangePassword(string u, string p)//Kan ändra lössenordet
         {
 
         }

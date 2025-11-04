@@ -27,6 +27,19 @@ namespace SlutUppgift_CookMaster
         public RecipeManager recipeManager;
         public MainWindow mainWindow;
 
+        public User Loggedin 
+        {
+            get
+            {
+                return UserManager.Loggedin;
+            }
+            private set
+            {
+                UserManager.Loggedin = value;
+                
+            } 
+        }
+
         public RecipeListWindow()
         {
             InitializeComponent();
@@ -52,7 +65,10 @@ namespace SlutUppgift_CookMaster
                 { 
                     if (Rec.SelectedItem == item.Title)
                     {
+                        
                       recipeDetailWindow.ShowRecipe(item);
+                        recipeManager.RemoveRecipe(item);
+                        break;
                     }
                 
                 }
@@ -91,6 +107,7 @@ namespace SlutUppgift_CookMaster
         {
             
              UserDetailsWindow userDetailsWindow = new UserDetailsWindow();
+            userDetailsWindow.ShowUser();
              this.Close();
              userDetailsWindow.Show();
             
@@ -118,5 +135,12 @@ namespace SlutUppgift_CookMaster
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
+
+        private void Info_Click(object sender, RoutedEventArgs e)
+        {
+            InfoWindow infoWindow = new InfoWindow();
+            infoWindow.Show();
+            this.Close();
+        }
     }
 }

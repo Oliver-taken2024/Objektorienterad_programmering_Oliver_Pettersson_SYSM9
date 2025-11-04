@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="RecipeListWindow" Height="450" Width="800">
     <StackPanel>
-        <TextBlock Text="{Binding Loggedin, Mode=TwoWay}" />
+        <TextBlock Text="{Binding Loggedin.UserName, Mode=TwoWay}" />
         <ListBox x:Name="Rec">
             
         </ListBox>
@@ -16,5 +16,6 @@
         <Button x:Name="Details" Content="Details" Click="Details_Click" />
         <Button x:Name="Remove" Content="Remove" Click="Remove_Click" />
         <Button Content="log out" Click="LogOut_Click"/>
+        <Button Content="Info" Click="Info_Click" Width="50"/>
     </StackPanel>
 </Window>

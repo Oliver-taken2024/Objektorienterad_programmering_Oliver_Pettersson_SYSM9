@@ -63,10 +63,7 @@ namespace SlutUppgift_CookMaster
             Usermanager.Register(UserNameInput, PasswordInput, Country);
         }
 
-        public void ValidatePassword()// ska see till att lösenordet ska vara en viss länged kanske gör jag denna om jag har tid
-        {
-
-        }
+       
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
             if (UserNameInput == null || PasswordInput == null || Country == null)// Detta gör att man måste fylla i alla criterier för att kunna komma vidare

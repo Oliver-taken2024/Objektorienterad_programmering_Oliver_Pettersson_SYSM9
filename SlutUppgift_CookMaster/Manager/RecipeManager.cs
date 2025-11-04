@@ -44,7 +44,7 @@ namespace SlutUppgift_CookMaster.Manager
         }
 
         public void GetAllRecipe()// kan göra så att bara userna kan se sina egna recept listor genom att göra så att jag gör en metod som letar igenom listan efter recept som har usernamnet inskrivet i det 
-        {
+        { // eller så  är detta hur admin ser alla recept
 
         }
 
@@ -54,10 +54,9 @@ namespace SlutUppgift_CookMaster.Manager
 
         }
 
-        public void UppdateRecipe(Recipe r)// ändrar ett redan existerande recept
+        public void UppdateRecipe(Recipe r)// lägger till det ändrade receptet
         {
-
-
+            Recipes.Add(r);
         }
 
         
