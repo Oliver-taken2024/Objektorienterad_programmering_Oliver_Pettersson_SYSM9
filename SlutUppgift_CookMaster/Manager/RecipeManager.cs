@@ -43,6 +43,7 @@ namespace SlutUppgift_CookMaster.Manager
             {
                 if (item.Title == r.Title) 
                 {
+
                     Recipes.Remove(item);
                     break;
                 }

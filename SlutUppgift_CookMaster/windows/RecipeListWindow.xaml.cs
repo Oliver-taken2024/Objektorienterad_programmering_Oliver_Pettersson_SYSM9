@@ -1,4 +1,5 @@
 ﻿using SlutUppgift_CookMaster.Manager;
+using SlutUppgift_CookMaster.Recipes;
 using SlutUppgift_CookMaster.Users;
 using SlutUppgift_CookMaster.windows;
 using System;
@@ -39,6 +40,7 @@ namespace SlutUppgift_CookMaster
                 
             } 
         }
+        public Recipe Recipe;
 
         public RecipeListWindow()
         {
@@ -65,9 +67,8 @@ namespace SlutUppgift_CookMaster
                 { 
                     if (Rec.SelectedItem == item.Title)
                     {
-                        
+                       Recipe=item;
                       recipeDetailWindow.ShowRecipe(item);
-                        recipeManager.RemoveRecipe(item);
                         break;
                     }
                 

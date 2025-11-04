@@ -26,6 +26,7 @@ namespace SlutUppgift_CookMaster.windows
         public Recipe r;
         public RecipeManager recipeManager;
         public UserManager userManager;
+        RecipeListWindow recipeListWindow = new RecipeListWindow();
         public RecipeDetailWindow()
         {
             InitializeComponent();
@@ -34,9 +35,17 @@ namespace SlutUppgift_CookMaster.windows
             userManager = (UserManager)Application.Current.Resources["UserManager"];
         }
 
-        //Skapa recipeDetails så jag kan använda den i recipemanager för att leta upp receptet  i listan för att sen ta bort det och lägga till ändringen
+        public Recipe Recipe 
+        { 
+            get { return recipeListWindow.Recipe; } 
+            private set
+            {
+                recipeListWindow.Recipe = value;
+            }
+        }
+        
 
-        public event PropertyChangedEventHandler? PropertyChanged;
+public event PropertyChangedEventHandler? PropertyChanged;
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
@@ -49,7 +58,7 @@ namespace SlutUppgift_CookMaster.windows
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            RecipeListWindow recipeListWindow = new RecipeListWindow();
+            
             if (!string.IsNullOrWhiteSpace(Box1.Text) &&
     !string.IsNullOrWhiteSpace(Box2.Text) &&
     !string.IsNullOrWhiteSpace(Box3.Text) &&
@@ -66,6 +75,7 @@ namespace SlutUppgift_CookMaster.windows
             }
         }
 
+
         public void ShowRecipe(Recipe recipe)//visa hela recepted som man valde
         {
             
@@ -76,14 +86,27 @@ namespace SlutUppgift_CookMaster.windows
             Box5.Text = $"{recipe.Date}";
         }
 
-        public void EditRecipe()// will Change the recipe
+        public void EditRecipe()// Ändrar receptet men gör så att inte alla recept som admin ser blir denns
         {
             if (userManager.Loggedin != userManager.Users[1]) 
             {
                 r = new Recipe(Box1.Text, Box2.Text, Box3.Text, Box4.Text, dateTime, userManager.Loggedin);
                 recipeManager.UppdateRecipe(r);
+
             }
-            
+            else
+            {
+                foreach (var item in recipeManager.Recipes) 
+                {
+                    //if (item.CreatedBY == Recipe.CreatedBY) 
+                    //{
+                        r = new Recipe(Box1.Text, Box2.Text, Box3.Text, Box4.Text, dateTime, item.CreatedBY);
+                        recipeManager.UppdateRecipe(r); 
+                    //}
+                    
+                }
+
+            }
         }
     }
 }
