@@ -56,9 +56,18 @@ namespace SlutUppgift_CookMaster.Manager
 
         }
 
-        public void UppdateRecipe(Recipe r)// lägger till det ändrade receptet
+        public void UppdateRecipe(Recipe r, Recipe r2)// lägger till det ändrade receptet
         {
-            Recipes[1] = r;
+
+            for (int i = 0; i < Recipes.Count; i++)
+            {
+                if (Recipes[i].Title == r2.Title)
+                {
+                    Recipes[i] = r;
+                    break; // sluta efter att du hittat och uppdaterat
+                }
+            }
+
         }
 
         

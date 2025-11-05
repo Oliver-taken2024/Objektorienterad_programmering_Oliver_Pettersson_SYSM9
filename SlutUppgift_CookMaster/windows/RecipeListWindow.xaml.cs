@@ -59,33 +59,43 @@ namespace SlutUppgift_CookMaster
 
         private void Details_Click(object sender, RoutedEventArgs e)//ger mej tillgång till RecipeDetailsWindow
         {
-            if (Rec.SelectedItem != null)
+         
+            // Leta efter rätt recept i listanforeach (var item in recipeManager.Recipes)
             {
-                RecipeDetailWindow recipeDetailWindow = new RecipeDetailWindow();
-                this.Close();
-                foreach (var item in recipeManager.Recipes)
-                { 
-                    if (Rec.SelectedItem == item.Title)
-                    {
-                        recipe(item);
-                      recipeDetailWindow.ShowRecipe(item);
-                        break;
-                    }
-                
+                if (Rec.SelectedItem == null)
+                {
+                    MessageBox.Show("Du måste välja ett recept för att se detaljerna");
+                    return;
                 }
-            recipeDetailWindow.Show();
-            }
-            else
-            {
-                MessageBox.Show("Du måste välja ett recept för att se detaljerna");
-            }
+                string selectedTitle = Rec.SelectedItem.ToString();
+                Recipe selectedRecipe = null;
+                foreach (var item in recipeManager.Recipes)
+                {
+                    
+                    if (item.Title == selectedTitle)
+                    {
+                        selectedRecipe = item;
+                        break; // sluta leta när vi hittat rätt        
+                    }
+                }
 
+                if (selectedRecipe != null)
+                {
+                    // Skicka med receptet till RecipeDetailWindow        RecipeDetailWindow detailWindow = new RecipeDetailWindow(selectedRecipe);
+                    RecipeDetailWindow detailWindow = new RecipeDetailWindow(selectedRecipe);
+                    this.Close();
+                    detailWindow.Show();
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Receptet kunde inte hittas.");
+                }
+
+            }
         }
 
-        private void recipe(Recipe item)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         private void Remove_Click(object sender, RoutedEventArgs e) // tar bort ett recept från listan
         {
@@ -117,7 +127,7 @@ namespace SlutUppgift_CookMaster
              userDetailsWindow.Show();
             
         }
-        public void ShowRecipe()// visar hur många recept det finns i listan
+        public void ShowRecipe()// visar hur många recept det finns i listan och uppdateras varje gång detta fönstret öppnas 
         {
             foreach (var item in recipeManager.Recipes) 
             {
@@ -157,10 +167,6 @@ namespace SlutUppgift_CookMaster
             this.Close();
         }
 
-        public RecipeManager recipe(RecipeManager recipe)
-        {
-            Recipe=recipe;
-            return Recipe;
-        }
+        
     }
 }

@@ -27,22 +27,24 @@ namespace SlutUppgift_CookMaster.windows
         public RecipeManager recipeManager;
         public UserManager userManager;
         RecipeListWindow recipeListWindow = new RecipeListWindow();
-        public RecipeDetailWindow()
+        public RecipeDetailWindow(Recipe recipe)
         {
+            Recipe = recipe;
             InitializeComponent();
             DataContext=this;
+            Box1.Text = recipe.Title;
+            Box2.Text = recipe.Ingredients;
+            Box3.Text = recipe.Instructions;
+            Box4.Text= recipe.Catagory;
+            Box5.Text= $"{recipe.Date}";
+
             recipeManager = (RecipeManager)Application.Current.Resources["RecipeManager"];
             userManager = (UserManager)Application.Current.Resources["UserManager"];
+
         }
 
-        public RecipeManager Recipe 
-        { 
-            get { return recipeListWindow.Recipe; } 
-            private set
-            {
-                recipeListWindow.Recipe = value;
-            }
-        }
+        private Recipe Recipe;
+        
         
 
 public event PropertyChangedEventHandler? PropertyChanged;
@@ -65,9 +67,11 @@ public event PropertyChangedEventHandler? PropertyChanged;
     !string.IsNullOrWhiteSpace(Box4.Text))
             {
                 EditRecipe();
-                this.Close();
                 recipeListWindow.ShowRecipe();
+                this.Close();
                 recipeListWindow.Show();
+                
+                
             }
             else
             {
@@ -75,38 +79,12 @@ public event PropertyChangedEventHandler? PropertyChanged;
             }
         }
 
-
-        public void ShowRecipe(Recipe recipe)//visa hela recepted som man valde
-        {
-            
-            Box1.Text = $"{recipe.Title}";
-            Box2.Text = $"{recipe.Ingredients}";
-            Box3.Text = $"{recipe.Instructions}";
-            Box4.Text = $"{recipe.Catagory}";
-            Box5.Text = $"{recipe.Date}";
-        }
-
         public void EditRecipe()// Ändrar receptet men gör så att inte alla recept som admin ser blir denns
         {
-            if (userManager.Loggedin != userManager.Users[1]) 
-            {
-                r = new Recipe(Box1.Text, Box2.Text, Box3.Text, Box4.Text, dateTime, userManager.Loggedin);
-                recipeManager.UppdateRecipe(r);
+                r = new Recipe(Box1.Text, Box2.Text, Box3.Text, Box4.Text, dateTime, Recipe.CreatedBY);
+                recipeManager.UppdateRecipe(r, Recipe);
 
-            }
-            else
-            {
-                foreach (var item in recipeManager.Recipes) 
-                {
-                    if (item.CreatedBY == Recipe.UserManager.Loggedin) 
-                    {
-                        r = new Recipe(Box1.Text, Box2.Text, Box3.Text, Box4.Text, dateTime, item.CreatedBY);
-                        recipeManager.UppdateRecipe(r); 
-                    }
-                    
-                }
-
-            }
+           
         }
     }
 }
