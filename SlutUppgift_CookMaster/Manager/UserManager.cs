@@ -61,12 +61,26 @@ namespace SlutUppgift_CookMaster.Manager
             return false;
         }
 
-        public void ChangeProfile(string u, string p, string c)//Ska ändra lösenord kommer förmodligen använda Delet och sen add
+        public void ChangeProfile(string u, string p, string c)//Ska ändra Userns namn och lösenord
         {
+            User user = new User(u,p,c);
+            for (int i = 0; i < Users.Count; i++) 
+            {
+                if (Users[i].UserName == Loggedin.UserName)
+                {
+                    
+
+                     GetLoggedIn(user);
+                     Users[i] = user;
+                     break;
+                    
+                    
+                }
+            }
 
         }
 
-        public User GetLoggedIn(User m) // vet inte vad det här är till för?
+        public User GetLoggedIn(User m) // ändra vilken user det är som använder programet
         {
             Loggedin = m;
             return Loggedin;

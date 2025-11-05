@@ -18,21 +18,5 @@ namespace SlutUppgift_CookMaster.Users
             Password = password;
             Country = country;
         }
-
-
-        public void ValidateLogin()//ser till at lössenordet är samma som användaren skriver in
-        {//Kanske lägga till en if som ser om användarens input är samma som lössenordet
-
-        }
-
-        public void ChangePassword()//Kan ändra lössenordet
-        {
-
-        }
-
-        public void UpdateDetails()//Uppdaterar Users list i UserManager tror jag
-        {
-
-        }
     }
 }

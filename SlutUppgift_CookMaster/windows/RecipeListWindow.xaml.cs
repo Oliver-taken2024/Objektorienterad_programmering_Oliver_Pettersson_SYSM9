@@ -40,10 +40,11 @@ namespace SlutUppgift_CookMaster
                 
             } 
         }
-        public RecipeManager Recipe;
+       
 
         public RecipeListWindow()
         {
+            
             InitializeComponent();
             DataContext = this;
             recipeManager = (RecipeManager)Application.Current.Resources["RecipeManager"];
@@ -129,19 +130,27 @@ namespace SlutUppgift_CookMaster
         }
         public void ShowRecipe()// visar hur många recept det finns i listan och uppdateras varje gång detta fönstret öppnas 
         {
-            foreach (var item in recipeManager.Recipes) 
+            for (int i = 0; i < recipeManager.Recipes.Count; i++) 
             {
+                if (UserManager.Users[i] == Loggedin)
+                {
+                   foreach (var item in recipeManager.Recipes) 
+                   {
 
-                if (UserManager.Loggedin == UserManager.Users[1])
-                {
-                    Rec.Items.Add(item.Title);
-                }
-                if(item.CreatedBY == UserManager.Loggedin)
-                {
-                  Rec.Items.Add(item.Title);
-                }
+                    if (UserManager.Loggedin == UserManager.Users[1])
+                    {
+                      Rec.Items.Add(item.Title);
+                    }
+                    if(UserManager.Loggedin == UserManager.Users[i])
+                    {
+                       Rec.Items.Add(item.Title);
+                    }
                 
-            }
+                   }
+                }
+            } 
+
+            
         }
 
         public void removeRecipe()// tar bort recept och söker igenom listan efter en matchande titel och sedan anropa RemoveRecipe

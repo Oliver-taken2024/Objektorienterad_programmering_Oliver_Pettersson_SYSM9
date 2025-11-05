@@ -50,12 +50,6 @@ namespace SlutUppgift_CookMaster.Manager
             }
         }
 
-        public void GetByUser(User u)
-        {
-            
-
-        }
-
         public void UppdateRecipe(Recipe r, Recipe r2)// lägger till det ändrade receptet
         {
 

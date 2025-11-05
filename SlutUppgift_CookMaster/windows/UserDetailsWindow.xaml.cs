@@ -106,6 +106,7 @@ namespace SlutUppgift_CookMaster.windows
                 if (NewPassword == ConfirmPassword)
                 {
                   UserManager.ChangeProfile(NewUserName, NewPassword, Country);
+                  recipeListWindow.ShowRecipe();
                   recipeListWindow.Show();
                   this.Close();
                 }
