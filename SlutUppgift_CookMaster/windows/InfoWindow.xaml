@@ -7,11 +7,16 @@
         mc:Ignorable="d"
         Title="InfoWindow" Height="450" Width="800">
     <StackPanel>
-        <Label Content="Information about this website" FontSize="20" />
+        <Label Content="Information about this website" FontSize="30" />
         <Label Content="In this website you can add and remove recipes you can also veiw details about said recipe" FontSize="19"/>
         <Label Content="You can change your username and change your password" FontSize="20"/>
         <Label/>
-        <Label Content="Information about CookMaster" FontSize="20"/>
-        <Label/>
+        <Label Content="Information about CookMaster" FontSize="30"/>
+        <Label Content="CookMaster was founded 2024 by Insertfirstname Insertlastname" FontSize="20"/>
+        <Label Content="CookMasters main funktion is to create a place where you can save all your recipes" FontSize="20"/>
+        <Label Content="while this maybe a beta version it has already proven much better the most other websites" FontSize="19"/>
+        <Label Content="Not only is it very user friendly but you don't have to pay in order to use your servises " FontSize="20"/>
+        <Button Content="Close"  Click="Close_Click"/>
     </StackPanel>
+    
 </Window>

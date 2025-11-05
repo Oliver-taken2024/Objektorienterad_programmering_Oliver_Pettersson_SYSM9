@@ -23,5 +23,14 @@ namespace SlutUppgift_CookMaster.windows
         {
             InitializeComponent();
         }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            RecipeListWindow recipeListWindow = new RecipeListWindow();
+            this.Close();
+            recipeListWindow.Show();
+            recipeListWindow.ShowRecipe();
+
+        }
     }
 }
