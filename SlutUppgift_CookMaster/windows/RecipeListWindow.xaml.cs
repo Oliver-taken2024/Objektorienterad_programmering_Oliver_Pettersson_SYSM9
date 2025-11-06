@@ -130,7 +130,7 @@ namespace SlutUppgift_CookMaster
         }
         public void ShowRecipe()// visar hur många recept det finns i listan och uppdateras varje gång detta fönstret öppnas 
         {
-            for (int i = 0; i < recipeManager.Recipes.Count; i++) 
+            for (int i = 0; i < UserManager.Users.Count; i++) 
             {
                 if (UserManager.Users[i] == Loggedin)
                 {
@@ -142,15 +142,15 @@ namespace SlutUppgift_CookMaster
                       Rec.Items.Add(item.Title); 
                             
                     }
-                    else if(UserManager.Loggedin == UserManager.Users[i])
+                    else if(UserManager.Users[i] ==item.CreatedBY )
                     {
                        Rec.Items.Add(item.Title);
                     }
                 
                    }
                 }
-            } 
-
+            }
+            recipeManager.getUserRecipe(Loggedin);
             
         }
 

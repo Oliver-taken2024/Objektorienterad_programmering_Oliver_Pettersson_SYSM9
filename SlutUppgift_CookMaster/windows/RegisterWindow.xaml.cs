@@ -66,7 +66,7 @@ namespace SlutUppgift_CookMaster
        
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-            if (UserNameInput == null || PasswordInput == null || Country == null)// Detta gör att man måste fylla i alla criterier för att kunna komma vidare
+            if (string.IsNullOrWhiteSpace(UserNameInput) || string.IsNullOrWhiteSpace(PasswordInput) || Country == null)// Detta gör att man måste fylla i alla criterier för att kunna komma vidare
             {
                 MessageBox.Show("Du måste fylla i användar namn, lösenord och land");
             }

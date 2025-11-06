@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -64,6 +65,26 @@ namespace SlutUppgift_CookMaster.Manager
 
         }
 
+        public ObservableCollection<Recipe> getUserRecipe(User user)
+        {
+            //Skapa en tom lista
+            ObservableCollection<Recipe> rec = new ObservableCollection<Recipe>();
+
+            //loopa igenom users och hitta korrekt recept för usern
+            foreach (var item in Recipes) 
+            {
+                if (item.CreatedBY == user)
+                {
+                    rec.Add(item);
+                   
+                }
+            }
+
+            //lägg till i lista
+
+            //returnera listan
+            return rec;
+        }
         
     }
 }
