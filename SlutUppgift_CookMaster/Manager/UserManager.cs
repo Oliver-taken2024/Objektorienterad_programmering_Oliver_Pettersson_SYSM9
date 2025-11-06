@@ -68,13 +68,9 @@ namespace SlutUppgift_CookMaster.Manager
             {
                 if (Users[i].UserName == Loggedin.UserName)
                 {
-                    
-
                      GetLoggedIn(user);
                      Users[i] = user;
                      break;
-                    
-                    
                 }
             }
 
