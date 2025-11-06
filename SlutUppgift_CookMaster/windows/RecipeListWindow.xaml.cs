@@ -130,19 +130,19 @@ namespace SlutUppgift_CookMaster
         }
         public void ShowRecipe()// visar hur många recept det finns i listan och uppdateras varje gång detta fönstret öppnas 
         {
-            for (int i = 0; i < UserManager.Users.Count; i++) 
+            for (int i = 0; i < UserManager.Users.Count; i++) // kollar hur många users som finns
             {
-                if (UserManager.Users[i] == Loggedin)
+                if (UserManager.Users[i] == Loggedin)// ser till att admin inte duplicerar sig i for loopen
                 {
-                   foreach (var item in recipeManager.Recipes) 
+                   foreach (var item in recipeManager.Recipes) // kollar alla recept
                    {
 
-                    if (UserManager.Loggedin == UserManager.Users[1])
+                    if (UserManager.Loggedin == UserManager.Users[1])// Om userns namn är admin kommer ifen att skapa listan
                     {
                       Rec.Items.Add(item.Title); 
                             
                     }
-                    else if(UserManager.Users[i] ==item.CreatedBY )
+                    else if(UserManager.Users[i] ==item.CreatedBY )// skapa listan för Den specifika usern
                     {
                        Rec.Items.Add(item.Title);
                     }
@@ -150,7 +150,7 @@ namespace SlutUppgift_CookMaster
                    }
                 }
             }
-            recipeManager.getUserRecipe(Loggedin);
+            
             
         }
 

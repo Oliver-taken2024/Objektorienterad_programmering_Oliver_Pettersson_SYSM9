@@ -64,27 +64,6 @@ namespace SlutUppgift_CookMaster.Manager
             }
 
         }
-
-        public ObservableCollection<Recipe> getUserRecipe(User user)
-        {
-            //Skapa en tom lista
-            ObservableCollection<Recipe> rec = new ObservableCollection<Recipe>();
-
-            //loopa igenom users och hitta korrekt recept för usern
-            foreach (var item in Recipes) 
-            {
-                if (item.CreatedBY == user)
-                {
-                    rec.Add(item);
-                   
-                }
-            }
-
-            //lägg till i lista
-
-            //returnera listan
-            return rec;
-        }
         
     }
 }
