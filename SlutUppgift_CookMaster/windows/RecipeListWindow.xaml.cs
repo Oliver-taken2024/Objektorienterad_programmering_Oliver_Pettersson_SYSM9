@@ -139,9 +139,10 @@ namespace SlutUppgift_CookMaster
 
                     if (UserManager.Loggedin == UserManager.Users[1])
                     {
-                      Rec.Items.Add(item.Title);
+                      Rec.Items.Add(item.Title); 
+                            
                     }
-                    if(UserManager.Loggedin == UserManager.Users[i])
+                    else if(UserManager.Loggedin == UserManager.Users[i])
                     {
                        Rec.Items.Add(item.Title);
                     }

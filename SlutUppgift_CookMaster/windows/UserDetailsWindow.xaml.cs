@@ -103,16 +103,38 @@ namespace SlutUppgift_CookMaster.windows
             }
             else
             {
-                if (NewPassword == ConfirmPassword)
+                if (NewUserName.Length >= 3)
                 {
-                  UserManager.ChangeProfile(NewUserName, NewPassword, Country);
-                  recipeListWindow.ShowRecipe();
-                  recipeListWindow.Show();
-                  this.Close();
+                    if (NewPassword.Length >= 5)
+                    {
+                        if (Country != null)
+
+                        {
+                            if (NewPassword == ConfirmPassword)
+                            {
+                                UserManager.ChangeProfile(NewUserName, NewPassword, Country);
+                                recipeListWindow.ShowRecipe();
+                                recipeListWindow.Show();
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Du har inte skrivit rätt lössenord i båda rutorna");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Du måste välja ett land");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ditt lössenord måste vara 5 bokstäver eller längre");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Du har inte skrivit rätt lössenord i båda rutorna");
+                    MessageBox.Show("Ditt andvändarnamn måste vara längre än 3 bokstäver");
                 }
             }
 
